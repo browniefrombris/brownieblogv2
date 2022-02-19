@@ -1,0 +1,167 @@
+<html>
+
+<head>
+        <title>Recipes - BrownieBlog</title>
+
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
+            @import url('https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap');
+            @import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap');
+
+            .flex-container{
+                display: flex;
+                justify-content: space-between;
+                padding: 0 0;
+                align-items: stretch;
+            }
+
+            .flex-container > div {
+                margin: 0 px;
+                padding: 0 px;
+                font-size: 15px;
+                width: 350px;
+                height: 30;
+                display: flex;
+                justify-content: space-between;
+                align-items:center;
+            }
+         
+            body {
+                font-family: 'Source Sans Pro', sans-serif;
+                font-size: 15;
+                padding: 0 20%; 
+                margin: 0;
+                background-color: white;            
+            }
+       
+            
+            h1{
+            font-size: 20;
+            }
+
+            a{
+                font-size: 20;
+                font-weight: bold;
+                text-decoration: none;
+                color: black;
+            }
+           
+            .banner{
+                font-family: 'Bungee Shade', cursive;
+                position: relative;
+                width: 100%;
+                height: 170px;
+                background-color: black;
+                color: white;
+                font-size: 50;
+            }
+
+       
+       </style>
+
+
+
+
+</head>
+
+
+<body>
+    <div style="position: relative; background-color: rgb(255, 255, 255); padding: 0 30; height: 100%;">
+    
+        <div class="flex-container">
+            <div style="justify-content: flex-start;">
+                <a style="padding-bottom: 5px;" href="{{ url_for('index') }}">BrownieBlog</a>
+            </div>   
+
+            <div style="justify-content: flex-end;">
+            
+                <a href="https://github.com/browniefrombris/brownieblog">
+                    <img style="display: inline; vertical-align: middle; padding: 0 5 0 5;"alt="github" src="{{url_for('static', filename='github.png')}}" width="20" height ="20"></a>
+                
+                
+            </div>
+        </div>
+  
+
+
+
+
+
+    
+    <div class="banner">
+        <span style="position: absolute; bottom: -20; left: 13;">Recipes</span>
+    </div>
+
+
+
+
+
+    <h1>Egg Pasta</h1>
+     
+    <p>
+        Eggs<br>   
+        Plain (all-purpose) flour<br>
+        Semolina flour (optional)<br>
+        <br>
+        Use 50g of flour per person and 1 egg per 100g of flour.<br> 
+        Use 3 parts plain flour and 1 part semolina if available.<br>  
+        <br>
+        1. Pour flour directly on to clean and dry benchtop and form a well.<br>
+        2. Crack the egg(s) directly into the well and gently introduce the flour into the egg with a fork.<br>
+        3. Steadily combine the flour and eggs together until a rough dough forms.<br>
+        4. Continue to combine the dough until smooth, then kneed for 5-10mins until soft and silky.<br>
+        5. Let rest for 30mins before rolling.<br>
+    </p>
+
+
+
+    <h1>Pancakes</h1>
+
+    <p> 
+        Self-raising flour (1.5 cups)<br>
+        Sugar (1 tbsp)<br>
+        Milk (1.25 cups)<br>
+        Egg (1)<br>
+        Butter (3 tbsp)<br>
+        Vanilla essence (1 tsp)<br>
+        <br>
+        Top with:<br>
+        - Bacon<br>
+        - Maple syrup<br>
+        - Lemon juice & sugar<br>
+        <br>
+        Note: Check pan temperature by flicking water on to it - water should sizzle and dance on surface and not immediately evaporate.<br>
+        <br>
+        1. Melt butter (3 tbsp) in microwave.<br>
+        2. Add sugar (1 tbsp) and combine.<br>
+        3. Add egg (1) and vanilla essence. Then whisk together.<br>
+        4. Add milk (1.25 cups) and combine.<br>
+        5. Add self-raising flour (1.5 cups). No need to measure precisely - just add until correct consistency.<br>
+        6. Pour or spoon onto hot pan. <br>
+        7. Flip pancakes when top surface has numerous bubbles.<br>
+        <br>
+
+
+
+
+
+    </div>
+
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>
