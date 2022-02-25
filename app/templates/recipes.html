@@ -1,134 +1,180 @@
 <html>
 
 <head>
-        <title>Recipes - BrownieBlog</title>
+    <title>Recipes - BrownieBlog</title>
 
-        <style>
-            @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
-            @import url('https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap');
-            @import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap');
-            
-            @media (min-width: 1000px) {
-                body {
-                    font-family: 'Source Sans Pro', sans-serif;
-                    font-size: 15;
-                    padding: 0 25%; 
-                    margin: 0;
-                    background-color: white;            
-                }
-
-                .flex-container{
-                    display: flex;
-                    justify-content: space-between;
-                    padding: 0 0;
-                    align-items: stretch;
-                }
-
-                .flex-container > div {
-                    margin: 0 px;
-                    padding: 0 px;
-                    font-size: 15px;
-                    width: 350px;
-                    padding: 5px 0px ;
-                    display: flex;
-                    justify-content: space-between;
-                    align-items:center;
-                }
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap');
         
-                h1{
-                    font-size: 20;
-                    margin-bottom: 0;
-                }
-
-                p{
-                    margin-top: 0;
-                }  
-
-                a{
-                    font-size: 20;
-                    font-weight: bold;
-                    text-decoration: none;
-                    color: black;
-                }
-            
-                .source{
-                    font-size: 15px;
-                    font-weight: normal;
-                    color: rgb(128, 128, 128);
-                }
-
-                .banner{
-                    font-family: 'Bungee Shade', cursive;
-                    position: relative;
-                    width: 100%;
-                    height: 170px;
-                    background-color: black;
-                    color: white;
-                    font-size: 50;
-                    display: flex;
-                }
+        @media (min-width: 1000px) {
+            body {
+                font-family: 'Source Sans Pro', sans-serif;
+                font-size: 15;
+                padding: 0 25%; 
+                margin: 0;
+                background-color: white;            
             }
 
-            @media (min-width: 320px) and (max-width: 999px) {
-                body {
-                    font-family: 'Source Sans Pro', sans-serif;
-                    font-size: 15;
-                    padding: 0 2.5%; 
-                    margin: 0;
-                    background-color: white;            
-                }
-
-                .flex-container{
-                    display: flex;
-                    justify-content: space-between;
-                    padding: 0 0;
-                    align-items: stretch;
-                }
-
-                .flex-container > div {
-                    margin: 0 px;
-                    padding: 0 px;
-                    font-size: 15px;
-                    width: 350px;
-                    padding: 5px 0px ;
-                    display: flex;
-                    justify-content: space-between;
-                    align-items:center;
-                }
-        
-                h1{
-                    font-size: 40;
-                }
-
-                a{
-                    font-size: 60;
-                    font-weight: bold;
-                    text-decoration: none;
-                    color: black;
-                }
-
-                p{
-                    font-size: 40;
-                }
-            
-                .banner{
-                    font-family: 'Bungee Shade', cursive;
-                    position: relative;
-                    width: 100%;
-                    height: 110px;
-                    background-color: black;
-                    color: white;
-                    font-size: 100;
-                    display: flex;
-                }
+            .flex-container{
+                display: flex;
+                justify-content: space-between;
+                align-items: stretch;
+                width: 100%;
+                background-color: rgb(255, 255, 255);
             }
-  
 
-       
-       </style>
+            .navbar {
+                display: flex;
+                justify-content: space-between;
+                width: 100%;
+                align-items: center;
+                z-index:2;
+                border-top: 5px solid white;
+                border-bottom: 5px solid white;
+                background-color: white;
+            }
+
+            .navbar a {
+                color: black;
+            }
+            /* .flex-container > div {
+                margin: 0 px;
+                padding: 0 px;
+                font-size: 15px;
+                width: 50%;
+                padding: 5px 0px ;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            } */
+
+            .navbar.scrolled {
+                display: flex;
+                justify-content: space-between;
+                width: 50%;
+                padding: 5px 0px ;       
+                align-items: center;
+
+                position: fixed;
+                background-color: black;
+                transition: background-color 000ms linear;
+                border-top: 0px solid black;
+                border-bottom: 0px solid black;
+            }
+
+            .navbar.scrolled a{
+                color: white;
+            }
+    
+            h1{
+                font-size: 20;
+                margin-bottom: 0;
+            }
+
+            p{
+                margin-top: 0;
+            }  
+
+            a{
+                font-size: 20;
+                font-weight: bold;
+                text-decoration: none;
+            }
+        
+            .source{
+                font-size: 15px;
+                font-weight: normal;
+                color: rgb(128, 128, 128);
+            }
+
+            .banner{
+                font-family: 'Bungee Shade', cursive;
+                position: relative;
+                width: 100%;
+                height: 170px;
+                background-color: black;
+                color: white;
+                font-size: 50;
+                display: flex;
+                z-index:1;
+            }
+
+            .scrolled{
+                color: rebeccapurple;
+            }
+        }
+
+        
+
+        @media (min-width: 320px) and (max-width: 999px) {
+            body {
+                font-family: 'Source Sans Pro', sans-serif;
+                font-size: 15;
+                padding: 0 2.5%; 
+                margin: 0;
+                background-color: white;            
+            }
+
+            .flex-container{
+                display: flex;
+                justify-content: space-between;
+                padding: 0 0;
+                align-items: stretch;
+            }
+
+            .flex-container > div {
+                margin: 0 px;
+                padding: 0 px;
+                font-size: 15px;
+                width: 350px;
+                padding: 5px 0px ;
+                display: flex;
+                justify-content: space-between;
+                align-items:center;
+            }
+    
+            h1{
+                font-size: 40;
+            }
+
+            a{
+                font-size: 60;
+                font-weight: bold;
+                text-decoration: none;
+            }
+
+            p{
+                font-size: 40;
+            }
+        
+            .banner{
+                font-family: 'Bungee Shade', cursive;
+                position: relative;
+                width: 100%;
+                height: 110px;
+                background-color: black;
+                color: white;
+                font-size: 100;
+                display: flex;
+            }
+        }
 
 
+    
+    </style>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <script>
+        $(function () {
+            $(document).scroll(function () {
+                var $nav = $(".navbar");
+                $nav.toggleClass("scrolled", $(this).scrollTop() > $nav.height());
+            });
+        });
+    </script>
 
 </head>
 
@@ -136,23 +182,17 @@
 <body>
     <div style="position: relative; background-color: rgb(255, 255, 255); height: 100%;">
     
-        <div class="flex-container">
-            <div style="justify-content: flex-start;">
+        <div class="navbar">
+            <div style="justify-content: flex-start; padding: 0 5 0 5">
                 <a href="{{ url_for('index') }}">BrownieBlog</a>
             </div>   
 
-            <div style="justify-content: flex-end;">
-            
+            <div style="justify-content: flex-end; padding: 0 5 0 5;">
                 <a href="https://github.com/browniefrombris/brownieblogv2">
-                    <img style="display: inline; vertical-align: middle; padding: 0 5 0 5;"alt="github" src="{{url_for('static', filename='github.png')}}" width="20" height ="20"></a>
+                    <img style="display: inline; vertical-align: middle; "alt="github" src="{{url_for('static', filename='github.png')}}" width="20" height ="20"></a>
 
             </div>
         </div>
-  
-
-
-
-
 
     
         <div class="banner">
@@ -161,7 +201,7 @@
 
 
 
-
+       
 
         <h1>Egg Pasta</h1>
         <br>         
