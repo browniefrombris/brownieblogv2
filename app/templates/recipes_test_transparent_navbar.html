@@ -1,0 +1,247 @@
+<html>
+
+
+<head>
+
+<style>
+
+    @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap');
+        
+
+    body {
+        font-family: 'Source Sans Pro', sans-serif;
+        font-size: 15;
+        padding: 0 25%; 
+        margin: 0;
+        background-color: white; 
+    }
+
+    .row {
+        min-height: 35px;
+        overflow: hidden;
+        position: relative;
+        width: 100%;
+    }
+
+    .navbar {
+        width: 50%;
+        min-height: 35px;
+        z-index: 2;
+    }
+
+    .startnavbar {
+        position: fixed;
+        margin-top: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .startnavbar a{
+        font-size: 20px;
+        font-weight: bold;
+        text-decoration: none;
+        color: black ;
+    }
+
+    .altnavbar {
+        position: absolute;
+        top: -37.6;
+        margin-top: 0;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        
+    }
+
+    .altnavbar a{
+        font-size: 20px;
+        font-weight: bold;
+        text-decoration: none;
+        color: white;
+    }
+
+    .whiteback {
+        background: white;
+    }
+
+    .blackback {
+        background: black;
+    }
+
+    .white {
+        color: white;
+    }
+
+    .black {
+        color: black;
+    }
+
+    .banner{
+        font-family: 'Bungee Shade', cursive;
+        position: relative;
+        width: 100%;
+        height: 170px;
+        background-color: black;
+        color: white;
+        font-size: 50;
+        display: flex;
+        z-index:1;
+    }
+
+</style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<script>
+  function logoSwitch () {
+    $('.altnavbar').each(function() {
+      $(this).css('top',
+        $('.startnavbar').offset().top -  $(this).closest('.row').offset().top
+      );
+    });
+  };
+
+  $(document).scroll(function() {logoSwitch();});
+
+  logoSwitch();
+</script>
+
+
+</head>
+
+<body>
+
+    <!-- <div class="row whiteback">
+        <div class="navbar black startnavbar" style="justify-content: flex-start;">
+            <h1 style="margin: 0;">BrownieBlog</h1>
+        </div>
+    </div> -->
+
+    <div class="row whiteback">
+        <div class="navbar black startnavbar">
+            <div style="justify-content: flex-start; padding: 0 5 0 10;">
+                <a href="{{ url_for('index') }}">BrownieBlog</a>
+            </div>       
+
+            <div style="justify-content: flex-end; padding: 0 10 0 5;">
+                <a href="https://github.com/browniefrombris/brownieblogv2">
+                    <img id="github" style="display: inline; vertical-align: middle; "alt="github" src="{{url_for('static', filename='github.png')}}" width="20" height ="20"></a>
+            </div>
+     </div>
+    </div>
+
+
+
+
+    <div class="row blackback">
+        <div class="navbar white altnavbar">
+            <div style="justify-content: flex-start; padding: 0 5 0 10;">
+                <a href="{{ url_for('index') }}">BrownieBlog</a>
+            </div>       
+
+            <div style="justify-content: flex-end; padding: 0 10 0 5;">
+                <a href="https://github.com/browniefrombris/brownieblogv2">
+                    <img id="github" style="display: inline; vertical-align: middle; "alt="github" src="{{url_for('static', filename='github.png')}}" width="20" height ="20"></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="banner">
+        <span style="position: absolute; bottom: 10; left: 10; line-height: 1;">Recipes</span>
+    </div>
+
+
+
+
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+</html>

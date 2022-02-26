@@ -17,18 +17,19 @@
                 background-color: white;            
             }
 
-            .flex-container{
+            /* .flex-container{
                 display: flex;
                 justify-content: space-between;
                 align-items: stretch;
                 width: 100%;
                 background-color: rgb(255, 255, 255);
-            }
+            } */
 
             .navbar {
                 display: flex;
                 justify-content: space-between;
-                width: 100%;
+                position: fixed;
+                width: 50%;
                 align-items: center;
                 z-index:2;
                 border-top: 5px solid white;
@@ -100,10 +101,6 @@
                 display: flex;
                 z-index:1;
             }
-
-            .scrolled{
-                color: rebeccapurple;
-            }
         }
 
         
@@ -167,11 +164,27 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
+
     <script>
         $(function () {
             $(document).scroll(function () {
                 var $nav = $(".navbar");
-                $nav.toggleClass("scrolled", $(this).scrollTop() > $nav.height());
+                var pos = $(document).scrollTop();
+                $nav.toggleClass("scrolled", $(this).scrollTop() > parseInt(34.5));
+                
+                
+
+                if (pos > 34.5){
+                    $('#github').attr('style', "-webkit-filter: grayscale(1) invert(1); filter: grayscale(1) invert(1);")
+                }
+
+                else(
+                    $('#github').attr('style', "-webkit-filter: grayscale(0) invert(0); filter: grayscale(0) invert(0);")
+
+
+
+                     
+                )
             });
         });
     </script>
@@ -181,15 +194,17 @@
 
 <body>
     <div style="position: relative; background-color: rgb(255, 255, 255); height: 100%;">
+
+
     
         <div class="navbar">
-            <div style="justify-content: flex-start; padding: 0 5 0 5">
+            <div style="justify-content: flex-start; padding: 0 5 0 10">
                 <a href="{{ url_for('index') }}">BrownieBlog</a>
             </div>   
 
-            <div style="justify-content: flex-end; padding: 0 5 0 5;">
+            <div style="justify-content: flex-end; padding: 0 10 0 5;">
                 <a href="https://github.com/browniefrombris/brownieblogv2">
-                    <img style="display: inline; vertical-align: middle; "alt="github" src="{{url_for('static', filename='github.png')}}" width="20" height ="20"></a>
+                    <img id="github" style="display: inline; vertical-align: middle; "alt="github" src="{{url_for('static', filename='github.png')}}" width="20" height ="20"></a>
 
             </div>
         </div>

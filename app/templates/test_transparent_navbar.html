@@ -1,0 +1,212 @@
+<html>
+
+
+<head>
+ 
+<style>
+
+  body {
+    font-family: 'Playfair Display', serif;
+    padding: 0 25%;
+    margin: 0;
+
+  }
+  .row {
+    min-height: 60px;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+  }
+
+  .logo {
+    width: 50%;
+    padding: 0;
+  }
+
+  .startLogo {
+    position: fixed;
+    margin-top: 0
+  }
+
+  .altLogo {
+    position: absolute;
+    margin-top: 0;
+    width: 100%;
+    top: -60;
+  }
+
+  .white {
+    color: white;
+  }
+
+  .black {
+    color: black;
+  }
+
+  .whiteback {
+    background: white;
+  }
+
+  .blackback {
+    background: black;
+  }
+
+  #scroll {
+    position: fixed;
+    bottom: 40px;
+    right: 100px;
+    text-align: center;
+    font-family: arial;
+  }
+</style>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script>
+  // var $top = $(this).offset().top;
+  function logoSwitch () {
+    var $blackbackrow = $(".row.blackback");
+
+    $('.altLogo').each(function() {
+      $(this).css('top',
+        $('.startLogo').offset().top -  $(this).closest('.row').offset().top
+      );
+      var fromtop = $('.startLogo').offset().top -  $(this).closest('.row').offset().top
+      console.log("Top:" + fromtop.toString());
+
+      if (fromtop >= 0){
+        $blackbackrow.attr('style', "position: fixed; top: 0; width: 50%")
+      }
+
+    });
+
+    // $(document).scroll(function () {
+    //       var $blackbackrow = $(".row.blackback");
+    //       var pos = $(document).scrollTop();
+    //       // $nav.toggleClass("scrolled", $(this).scrollTop() > parseInt(34.5));
+        
+    //       if (pos > 59.9999){
+    //         $blackbackrow.attr('style', "position: fixed; top: 0; width: 50%")
+    //         // $row.attr('style', "position: fixed; top: 0; width: 50%")
+    //         // ^^^ALTERNATIVE: $blackback.css({"position": "fixed", "top": "0", "width": "50%"})
+
+    //         // $altLogo.attr('style', "position: fixed; top: 0; width: 50%")
+    //       }
+
+    //       else (
+    //         $blackbackrow.attr('style', "position: relative")
+    //         // $row.attr('style', "position: relative")
+    //         // $altLogo.attr('style', "position: relative")
+    //       )
+    //   })
+  };
+
+  $(document).scroll(function() {logoSwitch();});
+
+  logoSwitch();
+
+
+</script>
+
+</head>
+
+
+
+<body>
+
+  <div class="row whiteback ">
+    <h1 class="logo black startLogo">Horizontal Logo</h1> 
+  </div>
+  
+  <div class="row blackback">
+    <h1 class="logo white altLogo">Horizontal Logo</h1> 
+  </div>
+
+
+  <br>
+  <br>
+  <br>
+  <br>
+  <div style="height: 50px; background-color: red;">
+
+
+  </div>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+
+
+
+
+
+
+</body>
+
+
+</html>
