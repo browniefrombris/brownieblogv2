@@ -11,11 +11,36 @@
     margin: 0;
 
   }
-  .row {
+  /* .row {
     min-height: 60px;
     overflow: hidden;
     position: relative;
     width: 100%;
+  } */
+
+  .blackrow{
+    min-height: 60px;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    background-color: black;
+  }
+
+  /* .blackrow.scrolled{
+    min-height: 60px;
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    top:0;
+    background-color: black;
+  } */
+
+  .whiterow{
+    min-height: 60px;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    background-color: white;
   }
 
   .logo {
@@ -25,14 +50,15 @@
 
   .startLogo {
     position: fixed;
-    margin-top: 0
+    margin-top: 0;
   }
 
   .altLogo {
     position: absolute;
+    top: -60;
     margin-top: 0;
     width: 100%;
-    top: -60;
+    
   }
 
   .white {
@@ -43,21 +69,32 @@
     color: black;
   }
 
+  .black.whitetext{
+    color: white;
+  }
+/* 
   .whiteback {
     background: white;
   }
 
   .blackback {
     background: black;
+  } */
+
+  .box {
+    height: 60;
+    background-color: transparent;
+    position: fixed;
+    width: 50%;
   }
 
-  #scroll {
+  .box.black{
+    height: 60;
+    background-color: black;
     position: fixed;
-    bottom: 40px;
-    right: 100px;
-    text-align: center;
-    font-family: arial;
+    width: 50%;
   }
+
 </style>
 
 
@@ -66,20 +103,51 @@
 <script>
   // var $top = $(this).offset().top;
   function logoSwitch () {
-    var $blackbackrow = $(".row.blackback");
+    // var $blackbackrow = $(".row.blackback");
+    // var $row = $(".row");
+    // var $whiterow = $(".whiterow");
+    var $blackrow = $(".blackrow");
+    var $box = $(".box");
+    var $black = $(".black")
+    var pos = $(document).scrollTop();
+
+    // $row.toggleClass("scrolled", $(this).scrollTop() > parseInt(60));
 
     $('.altLogo').each(function() {
-      $(this).css('top',
-        $('.startLogo').offset().top -  $(this).closest('.row').offset().top
-      );
-      var fromtop = $('.startLogo').offset().top -  $(this).closest('.row').offset().top
+      var fromtop = $('.startLogo').offset().top - $('.blackrow').offset().top;
+      $(this).css('top', fromtop.toString());
+      
       console.log("Top:" + fromtop.toString());
+      console.log("Type:" + typeof(fromtop));
 
-      if (fromtop >= 0){
-        $blackbackrow.attr('style', "position: fixed; top: 0; width: 50%")
-      }
 
-    });
+
+      // if (fromtop >= 0){
+      //   $blackbackrow.attr('style', "position: fixed; top: 0; width: 50%")
+      // }
+
+      // if (fromtop < 0){
+      //   $blackbackrow.attr('style', "position: relative; width: 50%")
+      // }
+
+      // else ($blackbackrow.attr('style', "position: relative; width: 100%")
+      // )
+    })
+
+
+  // $(function () {
+  //   $(document).scroll(function () {
+  //     $blackrow.toggleClass("scrolled", $(this).scrollTop() > parseInt(60));
+  //   })
+  // })
+
+    $(function () {
+      $(document).scroll(function () {
+        $box.toggleClass("black", $(this).scrollTop() > parseInt(60));
+        $black.toggleClass("whitetext", $(this).scrollTop() > parseInt(60));
+      })
+    })
+  
 
     // $(document).scroll(function () {
     //       var $blackbackrow = $(".row.blackback");
@@ -100,6 +168,7 @@
     //         // $altLogo.attr('style', "position: relative")
     //       )
     //   })
+ 
   };
 
   $(document).scroll(function() {logoSwitch();});
@@ -114,12 +183,16 @@
 
 
 <body>
+  <div class="box">
 
-  <div class="row whiteback ">
+  </div>
+
+
+  <div class="whiterow ">
     <h1 class="logo black startLogo">Horizontal Logo</h1> 
   </div>
   
-  <div class="row blackback">
+  <div class="blackrow">
     <h1 class="logo white altLogo">Horizontal Logo</h1> 
   </div>
 

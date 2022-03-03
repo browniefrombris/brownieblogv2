@@ -72,12 +72,16 @@
         background: black;
     }
 
-    .white {
+    /* .white {
         color: white;
     }
 
     .black {
         color: black;
+    } */
+
+    .altnavbar.whitetext{
+        color: white;
     }
 
     .banner{
@@ -92,22 +96,48 @@
         z-index:1;
     }
 
+    .box {
+        height: 35;
+        background-color: transparent;
+        position: fixed;
+        width: 50%;
+    }
+
+    .box.black{
+        background-color: black;
+    }
+
 </style>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
 <script>
-  function logoSwitch () {
-    $('.altnavbar').each(function() {
-      $(this).css('top',
-        $('.startnavbar').offset().top -  $(this).closest('.row').offset().top
-      );
-    });
-  };
+    function logoSwitch () {
 
-  $(document).scroll(function() {logoSwitch();});
+        var $box = $(".box");
+        var $black = $(".black");
+        var pos = $(document).scrollTop();
+        var $altnavbar = $(".altnavbar");
 
-  logoSwitch();
+        $('.altnavbar').each(function() {
+            $(this).css('top', $('.startnavbar').offset().top -  $(this).closest('.row').offset().top);
+        });
+
+        $(function () {
+            $(document).scroll(function () {
+                $box.toggleClass("black", $(this).scrollTop() > parseInt(35));
+                $altnavbar.toggleClass("whitetext", $(this).scrollTop() > parseInt(60));
+            })
+        })
+
+    };
+
+
+
+    $(document).scroll(function() {logoSwitch();});
+
+    logoSwitch();
+  
 </script>
 
 
@@ -121,8 +151,12 @@
         </div>
     </div> -->
 
+    <div class="box">
+
+    </div>
+
     <div class="row whiteback">
-        <div class="navbar black startnavbar">
+        <div class="navbar startnavbar">
             <div style="justify-content: flex-start; padding: 0 5 0 10;">
                 <a href="{{ url_for('index') }}">BrownieBlog</a>
             </div>       
@@ -138,7 +172,7 @@
 
 
     <div class="row blackback">
-        <div class="navbar white altnavbar">
+        <div class="navbar altnavbar">
             <div style="justify-content: flex-start; padding: 0 5 0 10;">
                 <a href="{{ url_for('index') }}">BrownieBlog</a>
             </div>       
@@ -150,9 +184,9 @@
         </div>
     </div>
 
-    <div class="banner">
+    <!-- <div class="banner">
         <span style="position: absolute; bottom: 10; left: 10; line-height: 1;">Recipes</span>
-    </div>
+    </div> -->
 
 
 
