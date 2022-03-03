@@ -89,6 +89,23 @@
                 color: white;
                 text-decoration: none;
             }
+
+            #BrownieBlogLogo {
+                justify-content: flex-start;
+                padding-left: 10;
+            }
+
+            #Github {
+                justify-content: flex-end;
+                padding-right: 10;
+            }
+
+            #RecipesHeading {
+                position:absolute; 
+                bottom: 10; 
+                left: 10; 
+                line-height: 1;
+            }
         /* 
             .box {
                 height: 35;
@@ -126,6 +143,7 @@
                 font-size: 20;
                 margin-bottom: 0;
             }
+
         }
 
          @media (min-width: 320px) and (max-width: 999px) {
@@ -133,7 +151,8 @@
 
             body {
                 font-family: 'Source Sans Pro', sans-serif;
-                font-size: 15; 
+                font-size: 15;
+                padding: 0;
                 margin: 0;
             }
 
@@ -153,22 +172,32 @@
                 position: relative;
                 width: 100%;
                 background-color: white;
+
+                display: none;
             }
 
             .navbar {
-                width: 50%;
-                font-size: 20px; 
+                width: 100%;
+                font-size: 40px; 
                 text-decoration: none;
+                font-family: 'Fredoka', sans-serif;
                 font-weight: bold;
                 min-height: 35px;
                 display: flex;
                 justify-content: space-between;
+
+                align-items: center;
+                justify-content: center;
+                position: sticky;
+                top: 0;
             }
 
-            .startnavbar {
+            /* ----------------------DESKTOP ONLY-------------------------- */
+            /* .startnavbar {
                 position: fixed;
                 margin-top: 0;
                 align-items: center;
+                
             }
 
             .altnavbar {
@@ -177,19 +206,25 @@
                 margin-top: 0;
                 width: 100%;
                 display: flex;
-                justify-content: space-between;
-                align-items: center;
                 font-size: 20px; 
                 text-decoration: none; 
+
+                align-items: center;
+                justify-content: center;
+
                 
-            }
+            } */
+            /* ------------------------------------------------------------ */
 
             .white a{
                 color: white;
                 text-decoration: none;
+                top: 0;
+
             }
 
-            .black a{
+            /* ----------------------DESKTOP ONLY-------------------------- */
+            /* .black a{
                 color: black;
                 text-decoration: none;
             }
@@ -197,7 +232,27 @@
             .black.whitetext a{
                 color: white;
                 text-decoration: none;
+            } */
+            /* ------------------------------------------------------------ */
+
+            #BrownieBlog {
+                padding-left: 10;
             }
+
+            #Github {
+                justify-content: flex-end;
+                padding-right: 10;
+                display: none;
+            }
+
+            #RecipesHeading {
+                display:inline-block;
+            }
+
+            #MainBody{
+                padding: 0 5;
+            }
+            
         /* 
             .box {
                 height: 35;
@@ -215,14 +270,20 @@
 
             .banner{
                 font-family: 'Bungee Shade', cursive;
-                position: relative;
+                position: sticky;
+                top: 13;
                 width: 100%;
-                height: 135px;
+                height: 100px;
                 background-color: black;
                 color: white;
                 font-size: 50;
                 display: flex;
+
+                text-align: center;
+                justify-content: center;
             }
+
+
 
             .source{
                 font-size: 15px;
@@ -242,33 +303,40 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <script>
-    function logoSwitch () {
+    if(window.innerWidth >1000){
+        function logoSwitch () {
 
-        var $blackrow = $(".blackrow");
-        var $box = $(".box");
-        var $black = $(".black");
-        var pos = $(document).scrollTop();
+            var $blackrow = $(".blackrow");
+            var $box = $(".box");
+            var $black = $(".black");
+            var pos = $(document).scrollTop();
 
-        $('.altnavbar').each(function() {
-            var fromtop = $('.startnavbar').offset().top - $('.blackrow').offset().top;
-            $(this).css('top', fromtop.toString());
+            $('.altnavbar').each(function() {
+                var fromtop = $('.startnavbar').offset().top - $('.blackrow').offset().top;
+                $(this).css('top', fromtop.toString());
 
-            console.log("Top:" + fromtop.toString());
-            console.log("Type:" + typeof(fromtop));
-        });
+                console.log("Top:" + fromtop.toString());
+                console.log("Type:" + typeof(fromtop));
+            });
 
-        // $(function () {
-        //     $(document).scroll(function () {
-        //         $box.toggleClass("black", $(this).scrollTop() > parseInt(35));
-        //         $black.toggleClass("whitetext", $(this).scrollTop() > parseInt(35));
-        //     })
-        // })
+            // $(function () {
+            //     $(document).scroll(function () {
+            //         $box.toggleClass("black", $(this).scrollTop() > parseInt(35));
+            //         $black.toggleClass("whitetext", $(this).scrollTop() > parseInt(35));
+            //     })
+            // })
 
-    };
+        };
 
-    $(document).scroll(function() {logoSwitch();});
+        $(document).scroll(function() {logoSwitch();});
 
-    logoSwitch();
+        logoSwitch();
+    }
+
+    else{
+        console.log("Mobile")
+    }
+
   
 </script>
 
@@ -283,11 +351,11 @@
 
     <div class="whiterow">
         <div class="navbar black startnavbar">
-            <div style="justify-content: flex-start; padding-left: 10;">
+            <div id="BrownieBlogLogo">
                 <a href="{{ url_for('index') }}">BrownieBlog</a>
             </div>
 
-            <div style="justify-content: flex-end; padding-right: 10">
+            <div id="Github">
             <a href="https://github.com/browniefrombris/brownieblogv2">
                 <img id="github" style="display: inline; vertical-align: middle"alt="github" src="{{url_for('static', filename='github.png')}}" width="20" height ="20">
             </a>
@@ -300,11 +368,11 @@
 
     <div class="blackrow">
         <div class="navbar white altnavbar">
-            <div style="justify-content: flex-start; padding-left: 10">
+            <div id="BrownieBlogLogo">
                 <a href="{{ url_for('index') }}">BrownieBlog</a>
             </div>
 
-            <div style="justify-content: flex-end; padding-right: 10;">
+            <div id="Github">
             <a href="https://github.com/browniefrombris/brownieblogv2">
                 <img id="github" style="display: inline; vertical-align: middle"alt="github" src="{{url_for('static', filename='github_white.png')}}" width="20" height ="20">
             </a>
@@ -315,10 +383,11 @@
 
  
         <div class="banner">
-            <span style="position:absolute; bottom: 10; left: 10; line-height: 1;">Recipes</span>
+            <span id="RecipesHeading">Recipes</span>
         </div>
 
-
+    
+    <div id="MainBody">
         <h1>Egg Pasta</h1>       
         <p>
             Eggs<br>   
@@ -410,6 +479,7 @@
             2. Add sauce and cook, stirring occasionally, until liquid is like syrup<br>
             3. Serve and eat<br>
             <br>
+    </div>
 
 </body>
 

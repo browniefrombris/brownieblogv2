@@ -1,54 +1,115 @@
 <html>
 
 <head>
-        <title>Recipes - BrownieBlog</title>
+        <title>Home - BrownieBlog</title>
 
         <style>
             @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
+            @import url('https://fonts.googleapis.com/css2?family=Fredoka&display=swap');
+            @import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap');
+            @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+
+
             @import url('https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap');
+            @import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap');
 
             
             @media (min-width: 1000px) {
+
                 body {
                     font-family: 'Source Sans Pro', sans-serif;
                     font-size: 15;
                     padding: 0 25%; 
                     margin: 0;
-                    background-color: white;            
                 }
 
-                .flex-container{
-                    display: flex;
-                    justify-content: space-between;
-                    padding: 0 0;
-                    align-items: stretch;
+                .blackrow {
+                    min-height: 35px;
+                    overflow: hidden;
+                    position: sticky;
+                    top: 0;
+                    width: 100%;
+                    background-color: black;
+                    z-index: 2;
                 }
 
-                .flex-container > div {
-                    margin: 0 px;
-                    padding: 0 px;
-                    font-size: 15px;
-                    width: 350px;
-                    padding: 5px 0px ;
-                    display: flex;
-                    justify-content: space-between;
-                    align-items:center;
+                .whiterow {
+                    min-height: 35px;
+                    overflow: hidden;
+                    position: relative;
+                    width: 100%;
+                    background-color: white;
                 }
-                
-                .title{
-                    font-size: 20;
+
+                .navbar {
+                    width: 50%;
+                    font-size: 20px; 
+                    text-decoration: none;
+                    font-family: 'Fredoka', sans-serif;
                     font-weight: bold;
-                    text-decoration: none;
-                    color: black;
+                    min-height: 35px;
+                    display: flex;
+                    justify-content: space-between;
                 }
 
-                h1{
-                font-size: 20;
+                .startnavbar {
+                    position: fixed;
+                    margin-top: 0;
+                    align-items: center;
                 }
 
-                a{
+                .altnavbar {
+                    position: absolute;
+                    top: -37.6;
+                    margin-top: 0;
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    font-size: 20px; 
+                    text-decoration: none; 
+                    
+                }
+
+                .white a{
+                    color: white;
                     text-decoration: none;
+                }
+
+                .black a{
                     color: black;
+                    text-decoration: none;
+                }
+
+                .black.whitetext a{
+                    color: white;
+                    text-decoration: none;
+                }
+            /* 
+                .box {
+                    height: 35;
+                    background-color: transparent;
+                    position: fixed;
+                    width: 50%;
+                }
+
+                .box.black{
+                    height: 35;
+                    background-color: black;
+                    position: fixed;
+                    width: 50%;
+                } */
+
+                .banner{
+                    font-family: 'Bungee Shade', cursive;
+                    position: sticky;
+                    top: 13;
+                    width: 100%;
+                    height: 80px;
+                    background-color: black;
+                    color: white;
+                    font-size: 50;
+                    display: flex;
                 }
             
             }
@@ -109,16 +170,17 @@
 <body>
     <div style="position: relative; background-color: rgb(255, 255, 255); height: 100%;">
     
-        <div class="flex-container">
-            <div style="justify-content: flex-start;">
-                <a class="title" href="{{ url_for('index') }}">BrownieBlog</a>
-            </div>   
-
-            <div style="justify-content: flex-end;">
-            
+        <div class="whiterow">
+            <div class="navbar black startnavbar">
+                <div style="justify-content: flex-start; padding-left: 10;">
+                    <a href="{{ url_for('index') }}">BrownieBlog</a>
+                </div>
+    
+                <div style="justify-content: flex-end; padding-right: 10">
                 <a href="https://github.com/browniefrombris/brownieblogv2">
-                    <img style="display: inline; vertical-align: middle; padding: 0 5 0 5;"alt="github" src="{{url_for('static', filename='github.png')}}" width="20" height ="20"></a>
-
+                    <img id="github" style="display: inline; vertical-align: middle"alt="github" src="{{url_for('static', filename='github.png')}}" width="20" height ="20">
+                </a>
+                </div>
             </div>
         </div>
   
