@@ -9,6 +9,7 @@
             @import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap');
             @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
 
+            @import url('https://fonts.googleapis.com/css2?family=Patua+One&display=swap');
 
             @import url('https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap');
             @import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap');
@@ -45,7 +46,7 @@
                     width: 50%;
                     font-size: 20px; 
                     text-decoration: none;
-                    font-family: 'Fredoka', sans-serif;
+                    font-family: 'Patua One', sans-serif;
                     font-weight: bold;
                     min-height: 35px;
                     display: flex;
@@ -85,20 +86,6 @@
                     color: white;
                     text-decoration: none;
                 }
-            /* 
-                .box {
-                    height: 35;
-                    background-color: transparent;
-                    position: fixed;
-                    width: 50%;
-                }
-
-                .box.black{
-                    height: 35;
-                    background-color: black;
-                    position: fixed;
-                    width: 50%;
-                } */
 
                 .banner{
                     font-family: 'Bungee Shade', cursive;
@@ -111,7 +98,40 @@
                     font-size: 50;
                     display: flex;
                 }
-            
+
+
+                #post{
+                    width: 100%;
+                    /* height: 30; */
+                    padding: 0 0;
+                    margin: 10 0;
+                    border-color: rgb(213, 213, 213);
+                    border-style: solid;
+                    border-width: 1;
+                    transition: all 0.2s ease;
+
+                    min-height: 30px;
+                    overflow: auto;
+                }
+
+                input[type=submit]{
+                    background-color: rgb(0, 0, 0);
+                    color: white;
+                    border-radius: 25px;
+                    border-style: solid;
+                    border-width: 1;
+                    border-color: rgb(213, 213, 213, 213);
+                    width: 255.6;
+                    height: 30;
+                    cursor: pointer;
+                    font-weight: bold;
+                    padding: 0;
+                }
+
+                h1{
+                    font-size: 25;
+                }
+                
             }
 
             @media (min-width: 320px) and (max-width: 999px) {
@@ -149,7 +169,7 @@
                 }
         
                 h1{
-                font-size: 40;
+                font-size: 25;
                 }
 
                 a{
@@ -161,6 +181,8 @@
             
 
             }
+
+            
   
        </style>
 
@@ -170,25 +192,69 @@
 <body>
     <div style="position: relative; background-color: rgb(255, 255, 255); height: 100%;">
     
-        <div class="whiterow">
-            <div class="navbar black startnavbar">
+        <div class="blackrow">
+            <div class="navbar white startnavbar">
                 <div style="justify-content: flex-start; padding-left: 10;">
                     <a href="{{ url_for('index') }}">BrownieBlog</a>
                 </div>
     
                 <div style="justify-content: flex-end; padding-right: 10">
                 <a href="https://github.com/browniefrombris/brownieblogv2">
-                    <img id="github" style="display: inline; vertical-align: middle"alt="github" src="{{url_for('static', filename='github.png')}}" width="20" height ="20">
+                    <img id="github" style="display: inline; vertical-align: middle"alt="github" src="{{url_for('static', filename='github_white.png')}}" width="20" height ="20">
                 </a>
                 </div>
             </div>
         </div>
-  
+        
+
+        <h1 style="padding-bottom: 10px;">Hi, <span style="color: dimgray;">{{ user.username }}!</span>
+        </h1>
+        
         Welcome to BrownieBlog. What are you looking for? <br>
 
         <a href="{{ url_for('recipes') }}">Recipes</a><br>
         <a href="https://www.google.com">TBC</a><br>
-        <br>
+
+        <div style="height: 30px;"></div>
+
+        <form action="" method="post">
+            {{ form.hidden_tag() }}
+    
+                <b>{{ form.post.label }}</b><br>
+                {{ form.post(cols=32, rows=1) }}<br>
+                {% for error in form.post.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+    
+            {{ form.submit() }}
+        </form>
+        
+
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul>
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+    
+        <b>Posts:<br></b>
+        
+
+        {% for post in posts %}
+        {{ post.body }} <br>
+        {% endfor %}
+
+
+        <div>
+            <br>
+        </div>
+        <form action="{{ url_for('clear_database') }}">
+            <input type="submit" value="Delete all posts" />
+        </form>
+
 
 
 

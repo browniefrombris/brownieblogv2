@@ -1,12 +1,32 @@
-from app import app
-from flask import render_template, send_from_directory
+from wtforms.fields.simple import SubmitField
+from app import app, db
+from app.forms import PostForm
+from app.models import Post, User
+from flask import render_template, send_from_directory, url_for, flash, redirect
 import os
 
-@app.route('/')
-@app.route('/index')
+@app.route('/', methods=['GET', 'POST'])
+@app.route('/index', methods=['GET', 'POST'])
 def index():
-    return render_template('index.html')
+    form = PostForm()
+    user = {'username': 'everyone'}
+    
+    if form.validate_on_submit():
+        post = Post(body=form.post.data, author=User.query.get(1))
+        db.session.add(post)
+        db.session.commit()
+        flash('Your post is now live!')
+        return redirect(url_for('index'))
+    
+    posts = Post.query.all()
+    
+    return render_template('index.html', title='Home', user=user, form=form, posts=posts)
 
+@app.route('/clear_database', methods=['GET', 'POST'])
+def clear_database():
+    Post.query.delete()
+    db.session.commit()
+    return redirect(url_for('index'))
 
 @app.route('/favicon.ico')
 def favicon():
