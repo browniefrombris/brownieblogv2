@@ -36,3 +36,7 @@ def favicon():
 @app.route('/recipes')
 def recipes():
     return render_template('recipes.html')
+
+@app.route('/repairs')
+def repairs():
+    return render_template('repairs.html')

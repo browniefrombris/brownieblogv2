@@ -1,0 +1,274 @@
+<html>
+
+<head>
+        <title>Home - BrownieBlog</title>
+
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
+            @import url('https://fonts.googleapis.com/css2?family=Fredoka&display=swap');
+            @import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap');
+            @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+
+            @import url('https://fonts.googleapis.com/css2?family=Patua+One&display=swap');
+
+            @import url('https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap');
+            @import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap');
+
+            
+            @media (min-width: 1000px) {
+
+                body {
+                    font-family: 'Source Sans Pro', sans-serif;
+                    font-size: 15;
+                    padding: 0 25%; 
+                    margin: 0;
+                }
+
+                .blackrow {
+                    min-height: 35px;
+                    overflow: hidden;
+                    position: sticky;
+                    top: 0;
+                    width: 100%;
+                    background-color: black;
+                    z-index: 2;
+                }
+
+                .whiterow {
+                    min-height: 35px;
+                    overflow: hidden;
+                    position: relative;
+                    width: 100%;
+                    background-color: white;
+                }
+
+                .navbar {
+                    width: 50%;
+                    font-size: 20px; 
+                    text-decoration: none;
+                    font-family: 'Patua One', sans-serif;
+                    font-weight: bold;
+                    min-height: 35px;
+                    display: flex;
+                    justify-content: space-between;
+                }
+
+                .startnavbar {
+                    position: fixed;
+                    margin-top: 0;
+                    align-items: center;
+                }
+
+                .altnavbar {
+                    position: absolute;
+                    top: -37.6;
+                    margin-top: 0;
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    font-size: 20px; 
+                    text-decoration: none; 
+                    
+                }
+
+                .white a{
+                    color: white;
+                    text-decoration: none;
+                }
+
+                .black a{
+                    color: black;
+                    text-decoration: none;
+                }
+
+                .black.whitetext a{
+                    color: white;
+                    text-decoration: none;
+                }
+
+                .banner{
+                    font-family: 'Bungee Shade', cursive;
+                    position: sticky;
+                    top: 13;
+                    width: 100%;
+                    height: 80px;
+                    background-color: black;
+                    color: white;
+                    font-size: 50;
+                    display: flex;
+                }
+
+
+                #post{
+                    width: 100%;
+                    /* height: 30; */
+                    padding: 0 0;
+                    margin: 10 0;
+                    border-color: rgb(213, 213, 213);
+                    border-style: solid;
+                    border-width: 1;
+                    transition: all 0.2s ease;
+
+                    min-height: 30px;
+                    overflow: auto;
+                }
+
+                input[type=submit]{
+                    background-color: rgb(0, 0, 0);
+                    color: white;
+                    border-radius: 25px;
+                    border-style: solid;
+                    border-width: 1;
+                    border-color: rgb(213, 213, 213, 213);
+                    width: 255.6;
+                    height: 30;
+                    cursor: pointer;
+                    font-weight: bold;
+                    padding: 0;
+                }
+
+                h1{
+                    font-size: 25;
+                }
+
+                
+            }
+
+            @media (min-width: 320px) and (max-width: 999px) {
+                body {
+                    font-family: 'Source Sans Pro', sans-serif;
+                    font-size: 15;
+                    padding: 0 2.5%; 
+                    margin: 0;
+                    background-color: white;            
+                }
+
+                .flex-container{
+                    display: flex;
+                    justify-content: space-between;
+                    padding: 0 0;
+                    align-items: stretch;
+                }
+
+                .flex-container > div {
+                    margin: 0 px;
+                    padding: 0 px;
+                    font-size: 15px;
+                    width: 350px;
+                    padding: 5px 0px ;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items:center;
+                }
+
+                .title{
+                    font-size: 60;
+                    font-weight: bold;
+                    text-decoration: none;
+                    color: black;
+                }
+        
+                h1{
+                font-size: 25;
+                }
+
+                a{
+                    font-size: 60;
+                    font-weight: bold;
+                    text-decoration: none;
+                    color: black;
+                }
+            
+
+            }
+
+            
+  
+       </style>
+
+</head>
+
+
+<body>
+    <div style="position: relative; background-color: rgb(255, 255, 255); height: 100%;">
+    
+        <div class="blackrow">
+            <div class="navbar white startnavbar">
+                <div style="justify-content: flex-start; padding-left: 10;">
+                    <a href="{{ url_for('index') }}">BrownieBlog</a>
+                </div>
+    
+                <div style="justify-content: flex-end; padding-right: 10">
+                <a href="https://github.com/browniefrombris/brownieblogv2">
+                    <img id="github" style="display: inline; vertical-align: middle"alt="github" src="{{url_for('static', filename='github_white.png')}}" width="20" height ="20">
+                </a>
+                </div>
+            </div>
+        </div>
+        
+
+        <h1 style="padding-bottom: 10px;">Hi, <span style="color: dimgray;">{{ user.username }}!</span>
+        </h1>
+        
+        Welcome to BrownieBlog. What are you looking for? <br>
+
+        <a href="{{ url_for('recipes') }}">Recipes</a><br>
+        <a href="https://www.google.com">TBC</a><br>
+
+        <div style="height: 30px;"></div>
+
+        <form action="" method="post">
+            {{ form.hidden_tag() }}
+    
+                <b>{{ form.post.label }}</b><br>
+                {{ form.post(cols=32, rows=1) }}<br>
+                {% for error in form.post.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+    
+            {{ form.submit() }}
+        </form>
+        
+
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul>
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+    
+        <b>Posts:<br></b>
+        
+
+        {% for post in posts %}
+        {{ post.body }} <br>
+        {% endfor %}
+
+
+        <div>
+            <br>
+        </div>
+        <form action="{{ url_for('clear_database') }}">
+            <input type="submit" value="Delete all posts" />
+        </form>
+
+
+
+
+    </div>
+
+</body>
+
+
+
+
+</html>
+
+
+
+
+
