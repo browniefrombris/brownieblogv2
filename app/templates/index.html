@@ -1,7 +1,7 @@
 <html>
 
 <head>
-    <title> - BrownieBlog</title>
+    <title> Home - BrownieBlog</title>
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
@@ -15,7 +15,7 @@
         @import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap');
 
         
-        @media (min-width: 1000px) {
+        /* @media (min-width: 1000px) { */
 
             body {
                 font-family: 'Source Sans Pro', sans-serif;
@@ -190,9 +190,66 @@
             a {
                 text-decoration: none;
             }
-        }
 
-        @media (min-width: 320px) and (max-width: 999px) {
+            footer{
+                position: fixed;
+                bottom: 0;
+                height: 25;
+                width: 50%;
+                background-color: black;
+
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .about {
+                background-color: white;
+                transition: 0.5s ease 0ms;
+            }
+
+            .about a{
+                color: black;
+                transition: 0.5s ease 0ms;
+                padding: 10;
+                font-weight: bold;
+            }
+
+            .about:hover{
+                transform: rotateX(360deg);
+                background-color: black;
+            }
+
+            .about a:hover{
+                color: white;
+            }
+            
+            /* .letter {
+                display: inline-block; 
+                background-color: rgb(255, 255, 255); 
+                width: 10;
+                text-align: center;
+                transition: 0.9s ease 0ms;
+            }
+
+            .letter a{
+                text-decoration: none;
+                font-weight: bold;
+                color: black;
+                margin: 0;
+            }
+
+            .letter:hover{
+                /* transform:translate(0, -5px); */
+                /* transform: rotateY(180deg);
+                background-color: black;
+            }
+
+            .letter a:hover{
+                color: white;
+            } */ 
+
+        /* @media (min-width: 320px) and (max-width: 999px) {
             body {
                 font-family: 'Source Sans Pro', sans-serif;
                 font-size: 15;
@@ -238,7 +295,7 @@
             }
         
 
-        }
+        } */
 
         
 
@@ -305,16 +362,16 @@
 
             <div class="cardholder" style="top: 140; right: 0; height: 200;">
                 <a href="{{ url_for('recipes') }}">
-                    <div class="card" style="background-image: url({{ url_for('static', filename='cooking_pattern.png') }});">
+                    <div class="card" style="background-image: url({{ url_for('static', filename='recipes_pattern_med.png') }});">
                         <span id="box_span">Recipes</span>
                     </div>
                 </a>
             </div>
 
             <div class="cardholder" style="top: 350; right: 0; height: 200;">
-                <a href="{{ url_for('repairs') }}">
-                    <div class="card" style="background-image: url({{ url_for('static', filename='repairs_pattern.png') }});">
-                        <span id="box_span">Repairs</span>
+                <a href="{{ url_for('projects') }}">
+                    <div class="card" style="background-image: url({{ url_for('static', filename='projects_pattern_med.png') }});">
+                        <span id="box_span">Projects</span>
                     </div>
                 </a>
             </div>
@@ -345,8 +402,40 @@
             </div>
 
         </div>
-
     </div>
+
+
+
+    <footer>
+        <!-- <div style="word-spacing: -5;">
+            <div class="letter">
+            <a href="www.google.com">A</a>
+            </div>
+            
+            <div class="letter">
+            <a href="www.google.com">B</a>
+            </div>
+
+            <div class="letter">
+            <a href="www.google.com">O</a>
+            </div>
+
+            <div class="letter">
+            <a href="www.google.com">U</a>
+            </div>
+            
+            <div class="letter">
+            <a href="www.google.com">T</a>
+            </div>
+        </div> -->
+
+        <div class="about">
+            <a href="{{ url_for('about') }}">ABOUT</a>
+        </div>
+    
+    </footer>
+
+    
 
 </body>
 
