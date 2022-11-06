@@ -3,6 +3,8 @@
 <head>
     <title> Home - BrownieBlog</title>
 
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Fredoka&display=swap');
@@ -14,6 +16,7 @@
         @import url('https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap');
 
+        
         
         /* @media (min-width: 1000px) { */
 
@@ -223,6 +226,13 @@
             .about a:hover{
                 color: white;
             }
+
+
+            .g-recaptcha{
+                data-sitekey: 6Ldhyb4iAAAAADfPr0NPwX2IxYCZm50uYxZsqHl4;
+                data-callback: onSubmit;
+                data-action: submit;
+            }
             
             /* .letter {
                 display: inline-block; 
@@ -301,6 +311,14 @@
 
     </style>
 
+    <!-- <script src="https://www.google.com/recaptcha/api.js"></script> -->
+
+    <script>
+        function onSubmit(token) {
+          document.getElementById("recaptchaform").submit();
+        }
+      </script>
+
 </head>
 
 
@@ -345,7 +363,7 @@
                     <div style="height: 30px;"></div> -->
             
             
-                    <form action="" method="post">
+                    <form action="" method="post" id="recaptchaform">
                         {{ form.hidden_tag() }}
                 
                             <b>{{ form.post.label }}</b><br>
@@ -354,7 +372,7 @@
                             <span style="color: red;">[{{ error }}]</span>
                             {% endfor %}
                 
-                        {{ form.submit() }}
+                        {{ form.submit(class="g-recaptcha") }}
                     </form>
             
                 </div>
