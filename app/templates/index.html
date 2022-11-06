@@ -3,8 +3,6 @@
 <head>
     <title> Home - BrownieBlog</title>
 
-    <script src="https://www.google.com/recaptcha/api.js"></script>
-
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Fredoka&display=swap');
@@ -227,12 +225,6 @@
                 color: white;
             }
 
-
-            .g-recaptcha{
-                data-sitekey: 6Ldhyb4iAAAAADfPr0NPwX2IxYCZm50uYxZsqHl4;
-                data-callback: onSubmit;
-                data-action: submit;
-            }
             
             /* .letter {
                 display: inline-block; 
@@ -310,15 +302,6 @@
         
 
     </style>
-
-    <!-- <script src="https://www.google.com/recaptcha/api.js"></script> -->
-
-    <script>
-        function onSubmit(token) {
-          document.getElementById("recaptchaform").submit();
-        }
-      </script>
-
 </head>
 
 
@@ -371,8 +354,8 @@
                             {% for error in form.post.errors %}
                             <span style="color: red;">[{{ error }}]</span>
                             {% endfor %}
-                
-                        {{ form.submit(class="g-recaptcha") }}
+
+                        {{ form.submit() }}
                     </form>
             
                 </div>
@@ -407,7 +390,6 @@
 
                 <b>Posts:<br></b>
                 
-
                 {% for post in posts %}
                 {{ post.body }} <br>
                 {% endfor %}

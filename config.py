@@ -9,4 +9,7 @@ class Config(object):
         'sqlite:///' + os.path.join(basedir, 'app.db')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
+    RECAPTCHA_PUBLIC_KEY = os.environ.get('6Leux-MiAAAAALW77ZnZxlYRrZa4kruNZIxwJfTX')
+    RECAPTCHA_PRIVATE_KEY= os.environ.get('6Leux-MiAAAAACB_LBJovYa4Ri_R4aFhpJot4p3JY')
+
 
